@@ -1,13 +1,148 @@
 @font-face {
-  font-family: 'MyFont';
-  src:
-    url('../fonts/Kanit/Kanit-Black.ttf') format('truetype'),
-    url('../fonts/Kanit/Kanit-BlackItalic.ttf') format('truetype');
+  font-family: 'kanit';
+  src: url('../fonts/Kanit/Kanit-Black.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'robot';
+  src: url('../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/Lato/Lato-BoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'kanit', sans-serif;
+  font-size: large;
+}
+
 body {
-  font-family: 'MyFont', sans-serif;
+  display: flex;
   background: bisque;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  padding: 15px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refresh {
+  transform: rotateZ(140deg);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.refresh:hover {
+  color: rgba(5, 141, 0, 0.661);
+}
+
+.refresh:active {
+  transform: rotateZ(360deg);
+}
+
+h1 {
+  font-family: 'lato', sans-serif;
+  font-size: larger;
+  color: rgb(255, 112, 112);
+  padding: 15px;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.container {
+  width: 600px;
+  align-items: flex-start;
+  border: solid 3px black;
+}
+
+.todos {
+  list-style: none;
+  width: 100%;
+}
+
+.todos li {
+  padding: 5px;
+  gap: 1%;
+  display: grid;
+  grid-template-columns: 7.33% 83.34% 7.33%;
+  align-items: center;
+  border: 1px solid grey;
+  transition: 0.3s;
+}
+
+.status {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.todos input {
+  outline: none;
+  border: none;
+  background-color: bisque;
+  transition: 0.3s;
+}
+
+.todos li:focus-within,
+li:focus-within input {
+  background-color: rgb(255, 244, 231);
+}
+
+.todos button {
+  font-family: 'robot', sans-serif;
+  background: rgb(255, 240, 221);
+  letter-spacing: 3px;
+  cursor: pointer;
+  height: 40.91px;
+  transition: 0.3s;
+  outline: none;
+}
+
+.todos button:hover {
+  background: rgb(255, 166, 121);
+}
+
+.todos button:active {
+  font-size: small;
+}
+
+.dragRemoveContainer {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  transition: 0.3s;
+}
+
+.dragRemoveContainer:hover {
+  color: rgba(0, 0, 255, 0.567);
+}
+
+.dragRemoveContainer:active {
+  cursor: grabbing;
+  color: blue;
 }
