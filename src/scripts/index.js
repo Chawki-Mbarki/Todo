@@ -2,7 +2,7 @@ import '../styles/style.css';
 
 import Task from './modules/classes/task.mjs';
 import addTask from './modules/functions/addTask.mjs';
-import ordertasks from './modules/functions/orderTasks.mjs';
+import orderTasks from './modules/functions/orderTasks.mjs';
 
 const todos = document.querySelector('.todos');
 
@@ -14,7 +14,7 @@ const task5 = new Task(4, 'Destroy the solar system', false);
 
 let tasks = [task2, task3, task1, task5, task4];
 
-tasks = ordertasks(tasks);
+tasks = orderTasks(tasks);
 tasks.forEach((todo) => {
   addTask(todo);
 });
