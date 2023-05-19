@@ -8,6 +8,7 @@ export default function orderTasks(tasks) {
           tasks[j] = swap
         }
       }
+      tasks[i]["index"] = i;
     }
   }return tasks;
 }

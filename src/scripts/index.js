@@ -18,7 +18,6 @@ addedTask.addEventListener("keypress", (e) => {
   if(e.key == "Enter") {
     tasks = addNewTask(tasks, addedTask)
     displayTaskElement(tasks[tasks.length - 1].element)
-    console.log(tasks)
   }
 })
 
