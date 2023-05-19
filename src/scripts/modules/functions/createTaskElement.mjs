@@ -18,7 +18,7 @@ export default function createTaskElement(todo){
 
   threedotsContainer.appendChild(threedots)
   threedotsContainer.classList.add('dragRemoveContainer', 'flex')
-  
+
   taskElement.appendChild(check);
   taskElement.appendChild(task);
   taskElement.appendChild(threedotsContainer);
