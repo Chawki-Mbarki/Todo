@@ -106,7 +106,6 @@ h1 {
   border: none;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  
 }
 
 .add-task input::placeholder {
@@ -143,10 +142,6 @@ h1 {
   background-color: transparent;
   font-family: "kanit-regular", sans-serif;
   color: rgb(43, 43, 43);
-}
-
-li:hover inptut {
-  background-color: rgb(255, 229, 198);
 }
 
 .tasks li:focus-within,
