@@ -17,7 +17,7 @@
   <br>
   You can add new tasks, mark them as completed or delete them. You can also drag and drop the tasks to reorder them according to your preference.
 </p>
-<div style="text-align: center;">
+<div align="center">
 <img src="./app_screenshot.png">
 </div>
 
