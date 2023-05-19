@@ -5,6 +5,7 @@ import displayAllTasksElements from './modules/functions/displayAllTasksElements
 import displayTaskElement from './modules/functions/displayTaskElement.mjs';
 
 import grabTasks from './modules/functions/grabTasks.mjs';
+import removeTask from './modules/functions/removeTask.mjs';
 
 const container = document.querySelector('.container');
 const addedTask = document.querySelector('.add-task input');
