@@ -1,6 +1,7 @@
 import '../styles/style.css';
 
 import addNewTask from './modules/functions/addNewTask.mjs';
+import createTaskElement from './modules/functions/createTaskElement.mjs';
 import displayAllTasksElements from './modules/functions/displayAllTasksElements.mjs';
 import displayTaskElement from './modules/functions/displayTaskElement.mjs';
 
@@ -11,6 +12,7 @@ const container = document.querySelector('.container');
 const addedTask = document.querySelector('.add-task input');
 
 let tasks = grabTasks();
+console.log("test1")
 localStorage.setItem('tasks', JSON.stringify(tasks));
 displayAllTasksElements(tasks);
 
@@ -32,7 +34,8 @@ tasks.forEach((task) => {
 
 addedTask.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    tasks = addNewTask(tasks, addedTask);
+    const taskElement = createTaskElement(addedTask.value)
+    tasks = addNewTask(tasks, addedTask.value, false, taskElement);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     displayTaskElement(tasks[tasks.length - 1]);
     addedTask.value = '';
