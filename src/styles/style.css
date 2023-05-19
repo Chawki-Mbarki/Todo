@@ -171,6 +171,7 @@ li:focus-within input {
 }
 
 .dragRemoveContainer {
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -187,6 +188,24 @@ li:focus-within input {
 .dragRemoveContainer:active {
   cursor: grabbing;
   color: blue;
+}
+
+.fa-trash-can {
+  position: absolute;
+  background-color: bisque;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.display-trash {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.display-trash:hover {
+  color: rgb(255, 0, 43);
 }
 
 .true {

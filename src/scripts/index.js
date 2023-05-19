@@ -5,6 +5,7 @@ import displayAllTasksElements from './modules/functions/displayAllTasksElements
 import displayTaskElement from './modules/functions/displayTaskElement.mjs';
 
 import grabTasks from './modules/functions/grabTasks.mjs';
+import removeTask from './modules/functions/removeTask.mjs';
 
 const container = document.querySelector('.container');
 const addedTask = document.querySelector('.add-task input');
@@ -21,6 +22,12 @@ tasks.forEach((task) => {
   taskCheck.addEventListener('change', () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   });
+  const trash = task.element.children[2].children[1];
+  trash.addEventListener('click', () => {
+    tasks = removeTask(tasks, task.index);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    displayAllTasksElements(tasks);
+  });
 });
 
 addedTask.addEventListener('keypress', (e) => {
@@ -29,6 +36,12 @@ addedTask.addEventListener('keypress', (e) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
     displayTaskElement(tasks[tasks.length - 1]);
     addedTask.value = '';
+    const trash = tasks[tasks.length - 1].element.children[2].children[1];
+    trash.addEventListener('click', () => {
+      tasks = removeTask(tasks, tasks.length - 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      displayAllTasksElements(tasks);
+    });
   }
 });
 

@@ -5,7 +5,9 @@ export default function createTaskElement(todo){
   let threedotsContainer = document.createElement('div');
   let check = document.createElement('input');
   let threedots = document.createElement('i');
+  let trashCan = document.createElement('i');
   threedots.classList.add('fa-solid','fa-ellipsis-vertical');
+  trashCan.classList.add('fa-solid','fa-trash-can');
 
   const description = todo;
 
@@ -17,6 +19,7 @@ export default function createTaskElement(todo){
   check.classList.add('status');
 
   threedotsContainer.appendChild(threedots)
+  threedotsContainer.appendChild(trashCan)
   threedotsContainer.classList.add('dragRemoveContainer', 'flex')
 
   taskElement.appendChild(check);
