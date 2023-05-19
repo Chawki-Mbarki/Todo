@@ -27,7 +27,6 @@ export default class Task {
       trash.classList.remove("display-trash");
     });
   }
-  }
 
   taskUpdate(e) {
     const regex = /[\w\d]/;
