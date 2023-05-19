@@ -7,7 +7,12 @@ export default class Task {
     this.completed = completed;
     this.element = element.children;
 
+    const check = this.element[0];
     const taskInput = this.element[1];
+
+    check.addEventListener("change", () => {
+      this.completed = statusUpdate(this, check, taskInput)
+    });
 
     taskInput.addEventListener("keyup", (e) => {
       this.taskUpdate(e);
