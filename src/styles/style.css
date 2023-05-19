@@ -1,7 +1,21 @@
 @font-face {
   font-family: 'kanit';
-  src: url('../fonts/Kanit/Kanit-Black.ttf') format('truetype');
+  src: url('../fonts/Kanit/Kanit-ExtraLight.ttf') format('truetype');
   font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'kanit-light';
+  src: url('../fonts/Kanit/Kanit-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'kanit-regular';
+  src: url('../fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: italic;
 }
 
@@ -9,7 +23,7 @@
   font-family: 'robot';
   src: url('../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf') format('truetype');
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
 }
 
 @font-face {
@@ -25,6 +39,7 @@
   box-sizing: border-box;
   font-family: 'kanit', sans-serif;
   font-size: large;
+  outline: none;
 }
 
 body {
@@ -41,20 +56,6 @@ header {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-}
-
-.refresh {
-  transform: rotateZ(140deg);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.refresh:hover {
-  color: rgba(5, 141, 0, 0.661);
-}
-
-.refresh:active {
-  transform: rotateZ(360deg);
 }
 
 h1 {
@@ -78,19 +79,55 @@ h1 {
   border: solid 3px black;
 }
 
-.todos {
+.refresh {
+  transform: rotateZ(140deg);
+  cursor: pointer;
+  transition: 0.3s;
+  color: red;
+}
+
+.refresh:hover {
+  color: rgba(5, 141, 0, 0.661);
+  transform: rotateZ(80deg);
+}
+
+.refresh:active {
+  transform: rotateZ(360deg);
+}
+
+.add-task {
+  width: 100%;
+}
+
+.add-task input {
+  width: 100%;
+  padding: 15px;
+  background-color: bisque;
+  border: none;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.add-task input::placeholder {
+  font-family: "kanit-light", sans-serif;
+  font-size: small;
+  letter-spacing: 0;
+}
+
+.tasks {
   list-style: none;
   width: 100%;
 }
 
-.todos li {
+.tasks li {
   padding: 5px;
   gap: 1%;
   display: grid;
   grid-template-columns: 7.33% 83.34% 7.33%;
   align-items: center;
   border: 1px solid grey;
-  transition: 0.3s;
+  transition: 0.1s;
+  background-color: bisque;
 }
 
 .status {
@@ -99,37 +136,42 @@ h1 {
   cursor: pointer;
 }
 
-.todos input {
-  outline: none;
+.tasks input {
   border: none;
-  background-color: bisque;
   transition: 0.3s;
+  background-color: transparent;
+  font-family: "kanit-regular", sans-serif;
+  color: rgb(43, 43, 43);
 }
 
-.todos li:focus-within,
+.tasks li:focus-within,
 li:focus-within input {
   background-color: rgb(255, 244, 231);
 }
 
-.todos button {
+.container button {
+  width: 100%;
+  height: 50px;
   font-family: 'robot', sans-serif;
   background: rgb(255, 240, 221);
   letter-spacing: 3px;
   cursor: pointer;
-  height: 40.91px;
   transition: 0.3s;
-  outline: none;
+  border: none;
+  border-top: 1px solid black;
 }
 
-.todos button:hover {
+.container button:hover {
   background: rgb(255, 166, 121);
 }
 
-.todos button:active {
+.container button:active {
+  background: rgb(255, 137, 79);
   font-size: small;
 }
 
 .dragRemoveContainer {
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -140,9 +182,33 @@ li:focus-within input {
 
 .dragRemoveContainer:hover {
   color: rgba(0, 0, 255, 0.567);
+  transform: scale(1.3);
 }
 
 .dragRemoveContainer:active {
   cursor: grabbing;
   color: blue;
+}
+
+.fa-trash-can {
+  position: absolute;
+  background-color: bisque;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.display-trash {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.display-trash:hover {
+  color: rgb(255, 0, 43);
+}
+
+.true {
+  color: grey !important;
+  text-decoration: line-through;
 }

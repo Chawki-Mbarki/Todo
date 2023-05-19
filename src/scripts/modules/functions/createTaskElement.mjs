@@ -1,30 +1,30 @@
-export default function addTask(todo){
-  const todos = document.querySelector('.todos');
+export default function createTaskElement(todo){
 
-  let listElement = document.createElement('li');
+  let taskElement = document.createElement('li');
   let task = document.createElement('input');
   let threedotsContainer = document.createElement('div');
   let check = document.createElement('input');
   let threedots = document.createElement('i');
+  let trashCan = document.createElement('i');
   threedots.classList.add('fa-solid','fa-ellipsis-vertical');
+  trashCan.classList.add('fa-solid','fa-trash-can');
 
-  const description = todo.description;
-  const completed = todo.completed;
+  const description = todo;
 
   task.type = 'text';
   task.value = description;
-  task.classList.add(completed);
+  task.classList.add("todo");
   
   check.type = 'checkbox'
   check.classList.add('status');
 
   threedotsContainer.appendChild(threedots)
+  threedotsContainer.appendChild(trashCan)
   threedotsContainer.classList.add('dragRemoveContainer', 'flex')
-  
-  listElement.appendChild(check);
-  listElement.appendChild(task);
-  listElement.appendChild(threedotsContainer);
-  todos.appendChild(listElement);
 
-  return task
+  taskElement.appendChild(check);
+  taskElement.appendChild(task);
+  taskElement.appendChild(threedotsContainer);
+
+  return taskElement;
 }

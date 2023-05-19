@@ -1,24 +1,50 @@
 import '../styles/style.css';
 
-import Task from './modules/classes/task.mjs';
-import addTask from './modules/functions/addTask.mjs';
-import orderTasks from './modules/functions/orderTasks.mjs';
+import addNewTask from './modules/functions/addNewTask.mjs';
+import displayAllTasksElements from './modules/functions/displayAllTasksElements.mjs';
+import displayTaskElement from './modules/functions/displayTaskElement.mjs';
 
-const todos = document.querySelector('.todos');
+import grabTasks from './modules/functions/grabTasks.mjs';
+import removeTask from './modules/functions/removeTask.mjs';
 
-const task1 = new Task(0, 'Go to the gym', false);
-const task2 = new Task(1, 'Study', false);
-const task3 = new Task(2, 'play soccer', false);
-const task4 = new Task(3, 'kiss wife for the last time', false);
-const task5 = new Task(4, 'Destroy the solar system', false);
+const container = document.querySelector('.container');
+const addedTask = document.querySelector('.add-task input');
 
-let tasks = [task2, task3, task1, task5, task4];
+let tasks = grabTasks();
+localStorage.setItem('tasks', JSON.stringify(tasks));
+displayAllTasksElements(tasks);
 
-tasks = orderTasks(tasks);
-tasks.forEach((todo) => {
-  addTask(todo);
+tasks.forEach((task) => {
+  task.element.addEventListener('keyup', () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  });
+  const taskCheck = task.element.children[0];
+  taskCheck.addEventListener('change', () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  });
+  const trash = task.element.children[2].children[1];
+  trash.addEventListener('click', () => {
+    tasks = removeTask(tasks, task.index);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    displayAllTasksElements(tasks);
+  });
+});
+
+addedTask.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    tasks = addNewTask(tasks, addedTask);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    displayTaskElement(tasks[tasks.length - 1]);
+    addedTask.value = '';
+    const trash = tasks[tasks.length - 1].element.children[2].children[1];
+    trash.addEventListener('click', () => {
+      tasks = removeTask(tasks, tasks.length - 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      displayAllTasksElements(tasks);
+    });
+  }
 });
 
 const btn = document.createElement('button');
 btn.textContent = 'Clear all completed';
-todos.appendChild(btn);
+container.appendChild(btn);
