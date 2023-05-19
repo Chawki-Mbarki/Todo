@@ -1,3 +1,5 @@
+import statusUpdate from "../functions/statusUpdate.mjs"
+
 export default class Task {
   constructor(index, description, completed, element) {
     this.index = index;
@@ -13,7 +15,7 @@ export default class Task {
 
     this.element = element;
 
-    if(this.completed) {
+    if (this.completed) {
       this.element.children[0].checked = true;
       this.element.children[1].classList.add("true");
     }
