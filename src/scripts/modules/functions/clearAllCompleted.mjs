@@ -12,7 +12,6 @@ export default function clearAllCompleted(tasks) {
   
   tasks.forEach((task) => {
     let taskElement = createTaskElement(task.description);
-    console.log(taskElement);
     refactoredTasks = addNewTask( refactoredTasks, task.description, task.completed, taskElement);
   });
   
