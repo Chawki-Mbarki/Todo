@@ -1,23 +1,14 @@
-import Task from "../classes/task.mjs";
+import addNewTask from "./addNewTask.mjs";
 import createTaskElement from "./createTaskElement.mjs";
 
 export default function grabTasks() {
-  let tasks = JSON.parse(localStorage.getItem("tasks"));
-  let reconstructedTasks = [];
-  if (!tasks) {
-    reconstructedTasks = [];
-  }else {
+  const tasks = JSON.parse(localStorage.getItem("tasks"));
+  let refactoredTasks = [];
+  if (tasks) {
     tasks.forEach((task) => {
-      let index = task.index;
-      let description = task.description;
-      let completed = task.completed;
-      let element = createTaskElement(description);
-      
-      task = new Task(index, description, completed, element)
-
-      reconstructedTasks.push(task);
-    })
-
+      let taskElement = createTaskElement(task.description);
+      refactoredTasks = addNewTask( refactoredTasks, task.description, task.completed, taskElement);
+    });
   }
-  return reconstructedTasks
+  return refactoredTasks;
 }

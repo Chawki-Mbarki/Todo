@@ -9,10 +9,8 @@ export default function createTaskElement(todo){
   threedots.classList.add('fa-solid','fa-ellipsis-vertical');
   trashCan.classList.add('fa-solid','fa-trash-can');
 
-  const description = todo;
-
   task.type = 'text';
-  task.value = description;
+  task.value = todo;
   task.classList.add("todo");
   
   check.type = 'checkbox'
