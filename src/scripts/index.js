@@ -39,6 +39,7 @@ const btn = document.createElement('button');
 btn.textContent = 'Clear all completed';
 btn.addEventListener("click", () => {
   tasks = eventsReminder(clearAllCompleted(grabTasks()));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   displayAllTasksElements(tasks);
   
 })
