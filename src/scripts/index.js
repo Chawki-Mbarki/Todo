@@ -14,13 +14,13 @@ const container = document.querySelector('.container');
 const addedTask = document.querySelector('.add-task input');
 
 let tasks = grabTasks();
-tasks = eventsReminder(tasks)
+tasks = eventsReminder(tasks);
 localStorage.setItem('tasks', JSON.stringify(tasks));
 displayAllTasksElements(tasks);
 
 addedTask.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    const taskElement = createTaskElement(addedTask.value)
+    const taskElement = createTaskElement(addedTask.value);
     tasks = addNewTask(tasks, addedTask.value, false, taskElement);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     displayTaskElement(tasks[tasks.length - 1]);
@@ -31,16 +31,15 @@ addedTask.addEventListener('keypress', (e) => {
       localStorage.setItem('tasks', JSON.stringify(tasks));
       displayAllTasksElements(tasks);
     });
-    tasks = eventsReminder(tasks)
+    tasks = eventsReminder(tasks);
   }
 });
 
 const btn = document.createElement('button');
 btn.textContent = 'Clear all completed';
-btn.addEventListener("click", () => {
+btn.addEventListener('click', () => {
   tasks = eventsReminder(clearAllCompleted(grabTasks()));
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   displayAllTasksElements(tasks);
-  
-})
+});
 container.appendChild(btn);
