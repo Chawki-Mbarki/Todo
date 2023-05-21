@@ -88,11 +88,11 @@ h1 {
   transform: rotateZ(360deg);
 }
 
-.add-task {
+.add-todo {
   width: 100%;
 }
 
-.add-task input {
+.add-todo input {
   width: 100%;
   padding: 15px;
   background-color: transparent;
@@ -101,18 +101,18 @@ h1 {
   border-bottom: 2px solid black;
 }
 
-.add-task input::placeholder {
+.add-todo input::placeholder {
   font-family: "kanit-light", sans-serif;
   font-size: small;
   letter-spacing: 0;
 }
 
-.tasks {
+.todos {
   list-style: none;
   width: 100%;
 }
 
-.tasks li {
+.todos li {
   padding: 5px;
   gap: 1%;
   display: grid;
@@ -128,7 +128,7 @@ h1 {
   cursor: pointer;
 }
 
-.tasks input {
+.todos input {
   border: none;
   transition: 0.3s;
   background-color: transparent;
@@ -136,7 +136,7 @@ h1 {
   color: rgb(43, 43, 43);
 }
 
-.tasks li:focus-within {
+.todos li:focus-within {
   background-color: rgb(255, 213, 161);
 }
 
