@@ -7,6 +7,7 @@ export default class Todo {
 
     const check = this.element.children[0];
     const input = this.element.children[1];
+    const threedots = this.element.children[2].children[0];
     const trash = this.element.children[2].children[1];
 
     check.checked = this.status;
@@ -29,11 +30,17 @@ export default class Todo {
     });
 
     this.element.addEventListener("focusin", () => {
-      trash.classList.add("display-trash");
+      threedots.classList.remove("display");
+      threedots.classList.add("hide");
+      trash.classList.remove("hide");
+      trash.classList.add("display");
     });
   
     this.element.addEventListener("focusout", () => {
-      trash.classList.remove("display-trash");
+      threedots.classList.remove("hide");
+      threedots.classList.add("display");
+      trash.classList.remove("display");
+      trash.classList.add("hide");
     });
 
 

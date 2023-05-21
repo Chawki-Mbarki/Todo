@@ -7,8 +7,8 @@ export default function createTodoElement(description) {
   let threedots = document.createElement('i');
   let trashCan = document.createElement('i');
 
-  threedots.classList.add('fa-solid','fa-ellipsis-vertical');
-  trashCan.classList.add('fa-solid','fa-trash-can');
+  threedots.classList.add('fa-solid','fa-ellipsis-vertical', "display");
+  trashCan.classList.add('fa-solid','fa-trash-can', "hide");
   todoDescription.type = 'text';
   todoDescription.value = description;
   todoDescription.classList.add("todo");
