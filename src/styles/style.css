@@ -1,3 +1,5 @@
+/* stylelint-disable csstree/validator */
+
 @font-face {
   font-family: 'kanit';
   src: url('../fonts/Kanit/Kanit-ExtraLight.ttf') format('truetype');
@@ -81,7 +83,7 @@ h1 {
   cursor: pointer;
   transition: 0.3s;
   color: rgb(255, 36, 36);
-  text-shadow: 2px 2px 5px black;;
+  text-shadow: 2px 2px 5px black;
 }
 
 .refresh:hover {
@@ -111,7 +113,7 @@ h1 {
   font-family: "kanit-light", sans-serif;
   font-size: small;
   letter-spacing: 0;
-  color:rgb(181, 181, 181);
+  color: rgb(181, 181, 181);
   transition: 0.3s;
 }
 
@@ -138,7 +140,7 @@ h1 {
   height: 100%;
   width: 100%;
   cursor: pointer;
-  background-color:transparent;
+  background-color: transparent;
   accent-color: red;
 }
 
@@ -196,6 +198,10 @@ h1 {
   color: blue;
 }
 
+.fa-trash-can {
+  cursor: pointer;
+}
+
 .fa-ellipsis-vertical,
 .fa-trash-can {
   position: absolute;
@@ -204,10 +210,6 @@ h1 {
 
 .fa-trash-can:hover {
   color: rgb(255, 0, 43);
-}
-
-.fa-trash-can{
-  cursor: pointer;
 }
 
 .hide {
@@ -219,7 +221,6 @@ h1 {
   opacity: 1;
   transform: scale(1);
 }
-
 
 .true {
   color: grey !important;
