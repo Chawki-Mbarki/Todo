@@ -1,22 +1,9 @@
-import addNewTask from "./addNewTask.mjs";
-import createTaskElement from "./createTaskElement.mjs";
-import orderTasks from "./orderTasks.mjs";
+import orderTodos from "./orderTodos.mjs";
 
-export default function clearAllCompleted(tasks) {
-  tasks = tasks.filter(function(el) {
-    return !el.completed;
+export default function clearAllCompleted(todos) {
+  todos = todos.filter(function(todo) {
+    return !todo.status;
   });
 
-
-  let refactoredTasks = [];
-  
-  tasks.forEach((task) => {
-    let taskElement = createTaskElement(task.description);
-    refactoredTasks = addNewTask( refactoredTasks, task.description, task.completed, taskElement);
-  });
-  
-  tasks = refactoredTasks;
-
-  return tasks;
-
+  return orderTodos(todos)
 }

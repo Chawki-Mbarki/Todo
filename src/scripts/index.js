@@ -1,45 +1,43 @@
 import '../styles/style.css';
 
-import addNewTask from './modules/functions/addNewTask.mjs';
+import grabTodos from './modules/functions/grabTodos.mjs';
+import displayTodo from './modules/functions/displayTodo.mjs';
+import newTodo from './modules/functions/newTodo.mjs';
+import displayAllTodos from './modules/functions/displayAllTodos.mjs';
+import removeTodo from './modules/functions/removeTodo.mjs';
 import clearAllCompleted from './modules/functions/clearAllCompleted.mjs';
-import createTaskElement from './modules/functions/createTaskElement.mjs';
-import displayAllTasksElements from './modules/functions/displayAllTasksElements.mjs';
-import displayTaskElement from './modules/functions/displayTaskElement.mjs';
-import eventsReminder from './modules/functions/eventsReminder.mjs';
 
-import grabTasks from './modules/functions/grabTasks.mjs';
-import removeTask from './modules/functions/removeTask.mjs';
+let todos = grabTodos();
+displayAllTodos(todos);
+localStorage.setItem('todos', JSON.stringify(todos));
+
+window.addEventListener('message', (e) => {
+  if (e.data.type === 'updateArray') {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  } else if (e.data.type === 'removeTodo') {
+    todos = removeTodo(todos, e.data.index);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    displayAllTodos(todos);
+  }
+});
 
 const container = document.querySelector('.container');
-const addedTask = document.querySelector('.add-task input');
+const input = document.querySelector('.add-todo input');
 
-let tasks = grabTasks();
-tasks = eventsReminder(tasks);
-localStorage.setItem('tasks', JSON.stringify(tasks));
-displayAllTasksElements(tasks);
-
-addedTask.addEventListener('keypress', (e) => {
+input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    const taskElement = createTaskElement(addedTask.value);
-    tasks = addNewTask(tasks, addedTask.value, false, taskElement);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    displayTaskElement(tasks[tasks.length - 1]);
-    addedTask.value = '';
-    const trash = tasks[tasks.length - 1].element.children[2].children[1];
-    trash.addEventListener('click', () => {
-      tasks = removeTask(tasks, tasks.length - 1);
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      displayAllTasksElements(tasks);
-    });
-    tasks = eventsReminder(tasks);
+    todos.push(newTodo(todos.length, e.target.value));
+    displayTodo(todos[todos.length - 1]);
+    input.value = '';
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
 });
 
 const btn = document.createElement('button');
 btn.textContent = 'Clear all completed';
 btn.addEventListener('click', () => {
-  tasks = eventsReminder(clearAllCompleted(grabTasks()));
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  displayAllTasksElements(tasks);
+  todos = clearAllCompleted(todos);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  displayAllTodos(todos);
 });
 container.appendChild(btn);
