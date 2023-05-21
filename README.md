@@ -59,7 +59,7 @@
 
 ## 🚀 Live Demo
 
-[Live Demo Link](https://chawkimbarki.github.io/Todo/)
+[Live Demo Link](https://chawkimbarki.github.io/Todo/dist/index.html)
 
 ## 💻 Getting Started
 
