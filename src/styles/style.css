@@ -1,36 +1,26 @@
 @font-face {
   font-family: 'kanit';
   src: url('../fonts/Kanit/Kanit-ExtraLight.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
 }
 
 @font-face {
   font-family: 'kanit-light';
   src: url('../fonts/Kanit/Kanit-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
 }
 
 @font-face {
   font-family: 'kanit-regular';
   src: url('../fonts/Kanit/Kanit-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
 }
 
 @font-face {
   font-family: 'robot';
   src: url('../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
 }
 
 @font-face {
   font-family: 'lato';
-  src: url('../fonts/Lato/Lato-BoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
+  src: url('../fonts/Lato/Lato-Bold.ttf') format('truetype');
 }
 
 * {
@@ -45,10 +35,9 @@
 body {
   display: flex;
   background: bisque;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
+  padding: 5% 0;
   align-items: center;
+  min-height: 100vh;
 }
 
 header {
@@ -74,9 +63,13 @@ h1 {
 }
 
 .container {
-  width: 600px;
+  width: 50%;
+  max-width: 1000px;
   align-items: flex-start;
   border: solid 3px black;
+  background-color: rgba(255, 228, 196, 0.343);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
 }
 
 .refresh {
@@ -87,7 +80,7 @@ h1 {
 }
 
 .refresh:hover {
-  color: rgba(5, 141, 0, 0.661);
+  color: rgba(2, 72, 0, 0.661);
   transform: rotateZ(80deg);
 }
 
@@ -102,7 +95,7 @@ h1 {
 .add-task input {
   width: 100%;
   padding: 15px;
-  background-color: bisque;
+  background-color: transparent;
   border: none;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -127,7 +120,6 @@ h1 {
   align-items: center;
   border: 1px solid grey;
   transition: 0.1s;
-  background-color: bisque;
 }
 
 .status {
@@ -144,14 +136,13 @@ h1 {
   color: rgb(43, 43, 43);
 }
 
-.tasks li:focus-within,
-li:focus-within input {
-  background-color: rgb(255, 244, 231);
+.tasks li:focus-within {
+  background-color: rgb(255, 213, 161);
 }
 
 .container button {
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   font-family: 'robot', sans-serif;
   background: rgb(255, 240, 221);
   letter-spacing: 3px;
@@ -192,7 +183,7 @@ li:focus-within input {
 
 .fa-trash-can {
   position: absolute;
-  background-color: bisque;
+  background-color: rgb(255, 213, 161);
   opacity: 0;
   transform: scale(0);
   transition: 0.3s;
