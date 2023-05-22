@@ -170,11 +170,11 @@ h1 {
 }
 
 .container button:hover {
-  background: rgba(255, 166, 121, 0.42);
+  background: rgba(255, 192, 160, 0.187);
 }
 
 .container button:active {
-  background: rgba(255, 138, 79, 0.532);
+  background: rgba(255, 192, 160, 0.27);
   font-size: small;
 }
 
@@ -184,28 +184,37 @@ h1 {
   align-items: center;
   width: 100%;
   height: 100%;
-  cursor: grab;
   transition: 0.3s;
 }
 
 .dragRemoveContainer:hover {
-  color: rgba(0, 0, 255, 0.567);
   transform: scale(1.5);
 }
 
-.dragRemoveContainer:active {
-  cursor: grabbing;
-  color: blue;
+.fa-ellipsis-vertical,
+.fa-trash-can {
+  text-align: center;
+  width: 100%;
+  transition: 0.3s;
+  position: absolute;
 }
 
 .fa-trash-can {
   cursor: pointer;
 }
 
-.fa-ellipsis-vertical,
-.fa-trash-can {
-  position: absolute;
-  transition: 0.3s;
+.fa-ellipsis-vertical {
+  cursor: grab;
+}
+
+.fa-ellipsis-vertical:hover {
+  cursor: grab;
+  color: rgba(0, 0, 255, 0.567);
+}
+
+.fa-ellipsis-vertical:active {
+  cursor: grabbing;
+  color: rgb(0, 0, 255);
 }
 
 .fa-trash-can:hover {
