@@ -1,13 +1,13 @@
 import orderTodos from "./orderTodos.mjs";
 
-export default function removeTodo(tasks, index) {
-  if(index === tasks.length-1) {
-    tasks.pop();
+export default function removeTodo(todos, index) {
+  if(index === todos.length-1) {
+    todos.pop();
   }else if (index === 0){
-    tasks.shift();
+    todos.shift();
   }else{
-    tasks.splice(index, 1);
+    todos.splice(index, 1);
   }
 
-  return orderTodos(tasks);
+  return orderTodos(todos);
 }
