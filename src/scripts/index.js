@@ -8,21 +8,12 @@ import removeTodo from './modules/functions/removeTodo.mjs';
 import clearAllCompleted from './modules/functions/clearAllCompleted.mjs';
 
 let todos = grabTodos();
-displayAllTodos(todos);
-localStorage.setItem('todos', JSON.stringify(todos));
-
-window.addEventListener('message', (e) => {
-  if (e.data.type === 'updateArray') {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  } else if (e.data.type === 'removeTodo') {
-    todos = removeTodo(todos, e.data.index);
-    localStorage.setItem('todos', JSON.stringify(todos));
-    displayAllTodos(todos);
-  }
-});
-
 const container = document.querySelector('.container');
 const input = document.querySelector('.add-todo input');
+const btn = document.createElement('button');
+
+displayAllTodos(todos);
+localStorage.setItem('todos', JSON.stringify(todos));
 
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
@@ -33,7 +24,6 @@ input.addEventListener('keypress', (e) => {
   }
 });
 
-const btn = document.createElement('button');
 btn.textContent = 'Clear all completed';
 btn.addEventListener('click', () => {
   todos = clearAllCompleted(todos);
@@ -41,3 +31,13 @@ btn.addEventListener('click', () => {
   displayAllTodos(todos);
 });
 container.appendChild(btn);
+
+window.addEventListener('message', (e) => {
+  if (e.data.type === 'updateArray') {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  } else if (e.data.type === 'removeTodo') {
+    todos = removeTodo(todos, e.data.index);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    displayAllTodos(todos);
+  }
+});
