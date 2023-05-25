@@ -53,7 +53,7 @@ header {
 
 h1 {
   font-family: 'lato', sans-serif;
-  font-size: larger;
+  font-size: 40px;
   color: rgb(255, 112, 112);
   text-shadow: 2px 2px 5px black;
   padding: 15px;
@@ -78,7 +78,8 @@ h1 {
   overflow: hidden;
 }
 
-.refresh {
+.refresh i {
+  font-size: 30px;
   transform: rotateZ(140deg);
   cursor: pointer;
   transition: 0.3s;
@@ -86,12 +87,12 @@ h1 {
   text-shadow: 2px 2px 5px black;
 }
 
-.refresh:hover {
+.refresh:hover i {
   color: rgba(6, 194, 0, 0.661);
   transform: rotateZ(80deg);
 }
 
-.refresh:active {
+.refresh:active i {
   transform: rotateZ(360deg);
 }
 
@@ -149,7 +150,9 @@ h1 {
   transition: 0.3s;
   background-color: transparent;
   font-family: "kanit-regular", sans-serif;
+  font-size: 30px;
   color: rgb(255, 202, 97);
+  cursor: pointer;
 }
 
 .todos li:focus-within {
@@ -176,6 +179,10 @@ h1 {
 .container button:active {
   background: rgba(255, 192, 160, 0.27);
   font-size: small;
+}
+
+.dragRemoveContainer i {
+  font-size: 30px;
 }
 
 .dragRemoveContainer {
