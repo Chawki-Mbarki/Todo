@@ -3,10 +3,10 @@ import newTodo from '../functions/newTodo.mjs';
 describe('Creating a new Task', () => {
   const newTask = newTodo(0, 'go to the gym');
 
-  const index = newTask;
-  const description = newTask;
-  const completed = newTask;
-  const element = newTask;
+  const { index } = newTask;
+  const { description } = newTask;
+  const { completed } = newTask;
+  const { element } = newTask;
 
   test('Index check', () => {
     expect(index).toBe(0);
