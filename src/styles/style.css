@@ -87,6 +87,10 @@ h1 {
   text-shadow: 2px 2px 5px black;
 }
 
+.dragRemoveContainer i {
+  font-size: 30px;
+}
+
 .refresh:hover i {
   color: rgba(6, 194, 0, 0.661);
   transform: rotateZ(80deg);
@@ -179,10 +183,6 @@ h1 {
 .container button:active {
   background: rgba(255, 192, 160, 0.27);
   font-size: small;
-}
-
-.dragRemoveContainer i {
-  font-size: 30px;
 }
 
 .dragRemoveContainer {
