@@ -56,7 +56,7 @@ describe('Remove task', () => {
 
   test('Removing " ALL " elements of the todos', () => {
     const todos = [task1, task2, task3, task4, task5];
-    const expected = orderTodos([]);
+    const expected = [];
     removeTodo(todos, 0)
     removeTodo(todos, 0)
     removeTodo(todos, 0)
