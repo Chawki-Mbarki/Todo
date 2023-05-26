@@ -205,7 +205,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ clearAllCompleted)\n/* harmony export */ });\n/* harmony import */ var _orderTodos_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./orderTodos.mjs */ \"./src/scripts/modules/functions/orderTodos.mjs\");\n\r\n\r\nfunction clearAllCompleted(todos) {\r\n  todos = todos.filter((todo) => {\r\n    return !todo.status;\r\n  });\r\n\r\n  return (0,_orderTodos_mjs__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(todos)\r\n}\n\n//# sourceURL=webpack://webpack-boilerplate/./src/scripts/modules/functions/clearAllCompleted.mjs?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ clearAllCompleted)\n/* harmony export */ });\n/* harmony import */ var _orderTodos_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./orderTodos.mjs */ \"./src/scripts/modules/functions/orderTodos.mjs\");\n\r\n\r\nfunction clearAllCompleted(todos) {\r\n  todos = todos.filter(todo => {\r\n    return !todo.status;\r\n  });\r\n\r\n  return (0,_orderTodos_mjs__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(todos)\r\n}\n\n//# sourceURL=webpack://webpack-boilerplate/./src/scripts/modules/functions/clearAllCompleted.mjs?");
 
 /***/ }),
 
