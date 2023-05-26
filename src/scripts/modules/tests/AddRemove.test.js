@@ -4,7 +4,7 @@ import newTodo from '../functions/newTodo.mjs';
 import orderTodos from '../functions/orderTodos.mjs';
 import removeTodo from '../functions/removeTodo.mjs';
 
-describe('Creating a new Task', () => {
+describe('Create a new Task', () => {
   const newTask = newTodo(0, 'go to the gym');
 
   const { index } = newTask;
@@ -29,7 +29,7 @@ describe('Creating a new Task', () => {
   });
 });
 
-describe('remove task', () => {
+describe('Remove task', () => {
   const task1 = new Todo(0, 'task1', false, createTodoElement('taks1'));
   const task2 = new Todo(1, 'task2', false, createTodoElement('taks2'));
   const task3 = new Todo(2, 'task3', false, createTodoElement('taks3'));
@@ -44,7 +44,7 @@ describe('remove task', () => {
 
   test('Removing the " FIRST " element of the todos', () => {
     const todos = [task1, task2, task3, task4, task5];
-    const expected = orderTodos([task2, task3, task4, task5]);
+    const expected = orderTodos([task4, task3, task2, task5]);
     expect(removeTodo(todos, 0)).toEqual(expected);
   });
 
@@ -52,5 +52,16 @@ describe('remove task', () => {
     const todos = [task1, task2, task3, task4, task5];
     const expected = orderTodos([task1, task2, task4, task5]);
     expect(removeTodo(todos, 2)).toEqual(expected);
+  });
+
+  test('Removing " ALL " elements of the todos', () => {
+    const todos = [task1, task2, task3, task4, task5];
+    const expected = [];
+    removeTodo(todos, 0);
+    removeTodo(todos, 0);
+    removeTodo(todos, 0);
+    removeTodo(todos, 0);
+    removeTodo(todos, 0);
+    expect(todos).toEqual(expected);
   });
 });

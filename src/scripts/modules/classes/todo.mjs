@@ -11,7 +11,7 @@ export default class Todo {
     const trash = this.element.children[2].children[1];
 
     check.checked = this.status;
-    input.textContent = this.description;
+    input.value = this.description;
     
     if (status) {
       input.classList.add(status);
@@ -22,7 +22,7 @@ export default class Todo {
     })
     
     input.addEventListener("keyup", () => {
-      this.changeDescription(input);
+      this.changeDescription(input.value);
     })
 
     trash.addEventListener("click", () => {
@@ -57,8 +57,8 @@ export default class Todo {
     window.postMessage({ type: 'updateArray'}, '*');
   }
 
-  changeDescription(input) {
-    this.description = input.value;
+  changeDescription(newDesction) {
+    this.description = newDesction;
     window.postMessage({ type: 'updateArray'}, '*');
   }
 

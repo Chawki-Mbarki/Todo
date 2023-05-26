@@ -1,7 +1,7 @@
 import orderTodos from "./orderTodos.mjs";
 
 export default function clearAllCompleted(todos) {
-  todos = todos.filter(function(todo) {
+  todos = todos.filter(todo => {
     return !todo.status;
   });
 
