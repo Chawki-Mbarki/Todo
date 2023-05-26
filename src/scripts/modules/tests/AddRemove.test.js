@@ -1,4 +1,7 @@
+import Todo from '../classes/todo.mjs';
+import createTodoElement from '../functions/createTodoElement.mjs';
 import newTodo from '../functions/newTodo.mjs';
+import orderTodos from '../functions/orderTodos.mjs';
 import removeTodo from '../functions/removeTodo.mjs';
 
 describe('Creating a new Task', () => {
@@ -26,28 +29,28 @@ describe('Creating a new Task', () => {
   });
 });
 
-describe('deleteTodo', () => {
-  test('test to remove the last element of the todos', () => {
-    const todos = ['task1', 'task2', 'task3'];
-    const index = 2;
-    const expected = ['task1', 'task2'];
+describe('remove task', () => {
+  const task1 = new Todo(0, 'task1', false, createTodoElement('taks1'));
+  const task2 = new Todo(1, 'task2', false, createTodoElement('taks2'));
+  const task3 = new Todo(2, 'task3', false, createTodoElement('taks3'));
+  const task4 = new Todo(3, 'task4', false, createTodoElement('taks4'));
+  const task5 = new Todo(4, 'task5', false, createTodoElement('taks5'));
 
-    expect(removeTodo(todos, index)).toEqual(expected);
+  test('Removing the " LAST " element of the todos', () => {
+    const todos = [task1, task2, task3, task4, task5];
+    const expected = orderTodos([task1, task2, task3, task4]);
+    expect(removeTodo(todos, 4)).toEqual(expected);
   });
 
-  test('test to remove the first element of the todos', () => {
-    const todos = ['task1', 'task2', 'task3'];
-    const index = 0;
-    const expected = ['task2', 'task3'];
-
-    expect(removeTodo(todos, index)).toEqual(expected);
+  test('Removing the " FIRST " element of the todos', () => {
+    const todos = [task1, task2, task3, task4, task5];
+    const expected = orderTodos([task2, task3, task4, task5]);
+    expect(removeTodo(todos, 0)).toEqual(expected);
   });
 
-  test('test to remove other elements of the todos', () => {
-    const todos = ['task1', 'task2', 'task3'];
-    const index = 1;
-    const expected = ['task1', 'task3'];
-
-    expect(removeTodo(todos, index)).toEqual(expected);
+  test('Removing " ANY " element of the todos', () => {
+    const todos = [task1, task2, task3, task4, task5];
+    const expected = orderTodos([task1, task2, task4, task5]);
+    expect(removeTodo(todos, 2)).toEqual(expected);
   });
 });
